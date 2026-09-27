@@ -1,0 +1,15 @@
+# Clean-clone build record (source repository, Lean v4.33.1, Mathlib 0df444a)
+# Commands: git clone <source repository>; cd lean-ggm; lake exe cache get; lake build GGMCollatz.Corollary GGMCollatz.Spec GGMCollatz.General.Spec; lake env lean <axiom report>
+
+clone commit 6c8dd13 (Corollary 8.6 formalized; unused hypotheses removed; native_decide replaced)
+start 2026-09-27T02:37:27+09:00
+Completed successfully in 17999 ms!
+Build completed successfully (8886 jobs).
+'GGMCollatz.FamilyGen.corollaries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.density_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.mainB_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.mainA_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.mainB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.mainA' depends on axioms: [propext, Classical.choice, Quot.sound]
+end 2026-09-27T02:51:02+09:00
+

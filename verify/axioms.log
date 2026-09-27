@@ -1,0 +1,45 @@
+# lake env lean verify/Axioms.lean  (run on this bundle after 'lake build', 2026-09-27; bundle of source commit 6c8dd13, Lean v4.33.1, Mathlib 0df444a)
+GGMCollatz.FamilyGen.mainA_gen : ∀ (G : GGMCollatz.FamilyGen), G.mainA_gen_statement
+GGMCollatz.FamilyGen.mainB_gen : ∀ (G : GGMCollatz.FamilyGen), GGMCollatz.MatveevHyp G.p G.q → G.mainB_gen_statement
+GGMCollatz.FamilyGen.corollaries : ∀ (G : GGMCollatz.FamilyGen),
+  GGMCollatz.MatveevHyp G.p G.q →
+    ∃ K c,
+      0 < K ∧
+        0 < c ∧
+          (∀ (N₀ : ℕ), 1 ≤ N₀ → ∀ (X : ℝ), 1 ≤ X → ↑{N ∈ Finset.Icc 1 ⌊X⌋₊ | N₀ < G.Cmin N}.card ≤ K * X * ↑N₀ ^ (-c)) ∧
+            (∀ (N₀ : ℕ),
+                1 ≤ N₀ →
+                  (Filter.IsBoundedUnder (fun x1 x2 => x1 ≤ x2) Filter.atTop fun X =>
+                      ↑{N ∈ Finset.Icc 1 X | N₀ < G.Cmin N}.card / ↑X) ∧
+                    Filter.limsup (fun X => ↑{N ∈ Finset.Icc 1 X | N₀ < G.Cmin N}.card / ↑X) Filter.atTop ≤
+                      K * ↑N₀ ^ (-c)) ∧
+              (∀ (θ : ℝ),
+                  0 < θ →
+                    ∀ (X : ℝ),
+                      1 ≤ X → ↑{N ∈ Finset.Icc 1 ⌊X⌋₊ | X ^ θ < ↑(G.Cmin N)}.card ≤ 2 ^ c * K * X ^ (1 - θ * c)) ∧
+                ∀ (θ : ℝ),
+                  0 < θ →
+                    θ * c < 1 →
+                      ∀ (X : ℝ),
+                        1 ≤ X →
+                          ↑{N ∈ Finset.Icc 1 ⌊X⌋₊ | ↑N ^ θ < ↑(G.Cmin N)}.card ≤
+                            2 ^ (c * (1 + θ)) * K * X ^ (1 - θ * c) / (1 - 2 ^ (θ * c - 1))
+GGMCollatz.FamilyGen.density_one : ∀ (G : GGMCollatz.FamilyGen),
+  GGMCollatz.MatveevHyp G.p G.q →
+    ∀ (f : ℕ → ℝ),
+      Filter.Tendsto f Filter.atTop Filter.atTop →
+        Filter.Tendsto (fun X => ↑{N ∈ Finset.Icc 1 X | ↑(G.Cmin N) < f N}.card / ↑X) Filter.atTop (nhds 1)
+GGMCollatz.Family.mainA : ∀ (F : GGMCollatz.Family), F.mainA_statement
+GGMCollatz.Family.mainB : ∀ (F : GGMCollatz.Family), GGMCollatz.MatveevHyp F.p F.q → F.mainB_statement
+GGMCollatz.Matveev.hyp_of_B13 : (∀ (p q : ℕ), 2 ≤ p → 2 ≤ q → GGMCollatz.Matveev.Cor23B13 p q) →
+  ∀ (p q : ℕ), 2 ≤ p → 2 ≤ q → GGMCollatz.MatveevHyp p q
+'GGMCollatz.FamilyGen.mainA_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.mainB_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.corollaries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.FamilyGen.density_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.mainA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.mainB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.prop33' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.prop35' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Family.prop51' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GGMCollatz.Matveev.hyp_of_B13' depends on axioms: [propext, Classical.choice, Quot.sound]

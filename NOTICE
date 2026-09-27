@@ -1,0 +1,120 @@
+collatz-generalized-natural-density (Lean 4 project GGMCollatz)
+Copyright 2026 Hiroyuki Nashida
+
+This project is licensed under the Apache License, Version 2.0; a copy of the license is in LICENSE.
+
+This project contains files derived from two works licensed under the Apache License, Version 2.0.
+The derived files name their source in their headers; they are listed below, and all of them were modified.
+
+1. tao-collatz, https://github.com/gotrevor/tao-collatz, commit 15efca2 (Apache License 2.0).
+   Copyright 2026 Trevor Morris (as stated in the README of tao-collatz at that commit).
+   A Lean 4 formalization of T. Tao, "Almost all orbits of the Collatz map attain almost bounded values".
+   The following 89 files are derived from it and were modified (generalized from the Collatz map to the
+   maps of Goncalves, Greenfeld and Madrid, and in some cases adapted to other estimates):
+     GGMCollatz/Assembly.lean
+     GGMCollatz/Assembly/Prob.lean
+     GGMCollatz/NatDen/SumCF/Decay.lean
+     GGMCollatz/NatDen/SumCF/Pairing.lean
+     GGMCollatz/NatDen/SumMixA/Basic.lean
+     GGMCollatz/NatDen/SumMixA/Events.lean
+     GGMCollatz/NatDen/SumMixA/Head.lean
+     GGMCollatz/NatDen/SumMixA/Main.lean
+     GGMCollatz/NatDen/SumMixA/Step.lean
+     GGMCollatz/NatDen/SumMixA/Tele.lean
+     GGMCollatz/NatDen/TV/LogProf.lean
+     GGMCollatz/NatDen/UProf/Conc/Event.lean
+     GGMCollatz/NatDen/UProf/Conc/Good.lean
+     GGMCollatz/NatDen/UProf/Conc/Window.lean
+     GGMCollatz/NatDen/UProf/Master/Prob.lean
+     GGMCollatz/Tao/Basic/Collatz.lean
+     GGMCollatz/Tao/Basic/Valuation.lean
+     GGMCollatz/Tao/Fourier/Char.lean
+     GGMCollatz/Tao/Fourier/Parseval.lean
+     GGMCollatz/Tao/Prob/Basic.lean
+     GGMCollatz/Tao/Prob/CharFn.lean
+     GGMCollatz/Tao/Prob/CharFn1.lean
+     GGMCollatz/Tao/Prob/Geometric.lean
+     GGMCollatz/Tao/Prob/LocalBound.lean
+     GGMCollatz/Tao/Prob/LocalInstances.lean
+     GGMCollatz/Tao/Prob/Mgf.lean
+     GGMCollatz/Tao/Prob/Tilt.lean
+     GGMCollatz/Tao/Sec5/ApproxFormula.lean
+     GGMCollatz/Tao/Sec5/Defs.lean
+     GGMCollatz/Tao/Sec5/Drift.lean
+     GGMCollatz/Tao/Sec5/FirstPassage.lean
+     GGMCollatz/Tao/Sec5/Generic.lean
+     GGMCollatz/Tao/Sec5/Reindex.lean
+     GGMCollatz/Tao/Sec5/Stabilization.lean
+     GGMCollatz/Tao/Sec6/Assemble.lean
+     GGMCollatz/Tao/Sec6/Core.lean
+     GGMCollatz/Tao/Sec6/Events.lean
+     GGMCollatz/Tao/Sec6/Factor.lean
+     GGMCollatz/Tao/Sec6/FromDecay.lean
+     GGMCollatz/Tao/Sec6/Sep.lean
+     GGMCollatz/Tao/Sec6/Step.lean
+     GGMCollatz/Tao/Sec7/BlackEdge.lean
+     GGMCollatz/Tao/Sec7/Bridge.lean
+     GGMCollatz/Tao/Sec7/Case2.lean
+     GGMCollatz/Tao/Sec7/Case3.lean
+     GGMCollatz/Tao/Sec7/ColTail.lean
+     GGMCollatz/Tao/Sec7/Decay.lean
+     GGMCollatz/Tao/Sec7/EWWeight.lean
+     GGMCollatz/Tao/Sec7/Expect.lean
+     GGMCollatz/Tao/Sec7/FPTail.lean
+     GGMCollatz/Tao/Sec7/FW710.lean
+     GGMCollatz/Tao/Sec7/FW710Aux.lean
+     GGMCollatz/Tao/Sec7/FW710Geo.lean
+     GGMCollatz/Tao/Sec7/FW710Sum.lean
+     GGMCollatz/Tao/Sec7/FW79.lean
+     GGMCollatz/Tao/Sec7/FW79Block.lean
+     GGMCollatz/Tao/Sec7/FW79Chain.lean
+     GGMCollatz/Tao/Sec7/FW79Enc.lean
+     GGMCollatz/Tao/Sec7/FWDet.lean
+     GGMCollatz/Tao/Sec7/FWEnc.lean
+     GGMCollatz/Tao/Sec7/FWMass.lean
+     GGMCollatz/Tao/Sec7/FewWhite.lean
+     GGMCollatz/Tao/Sec7/FpPlus.lean
+     GGMCollatz/Tao/Sec7/HLAnal.lean
+     GGMCollatz/Tao/Sec7/HLBase.lean
+     GGMCollatz/Tao/Sec7/HLCircle.lean
+     GGMCollatz/Tao/Sec7/HLDefs.lean
+     GGMCollatz/Tao/Sec7/HLFpConv.lean
+     GGMCollatz/Tao/Sec7/HLFpLoc.lean
+     GGMCollatz/Tao/Sec7/HLLocal.lean
+     GGMCollatz/Tao/Sec7/HLRenew.lean
+     GGMCollatz/Tao/Sec7/HLRenewF.lean
+     GGMCollatz/Tao/Sec7/HoldLocal.lean
+     GGMCollatz/Tao/Sec7/Holding.lean
+     GGMCollatz/Tao/Sec7/Monotone.lean
+     GGMCollatz/Tao/Sec7/Pair.lean
+     GGMCollatz/Tao/Sec7/Reduction.lean
+     GGMCollatz/Tao/Sec7/Setup.lean
+     GGMCollatz/Tao/Sec7/TriBasic.lean
+     GGMCollatz/Tao/Sec7/TriCorner.lean
+     GGMCollatz/Tao/Sec7/TriSep.lean
+     GGMCollatz/Tao/Sec7/Triangles.lean
+     GGMCollatz/Tao/Sec7/Unroll.lean
+     GGMCollatz/Tao/Sec7/WETail.lean
+     GGMCollatz/Tao/Sec7/Walk.lean
+     GGMCollatz/Tao/Sec7/White.lean
+     GGMCollatz/Tao/Sec7/WhiteExit.lean
+     GGMCollatz/Tao/Syracuse/SyracRV.lean
+     GGMCollatz/Tao/Syracuse/ValuationDist.lean
+
+2. FirstPassageLinearTransport, https://github.com/shaikidris/FirstPassageLinearTransport,
+   commit 7239f88d05d8262d4778f3c46f4560905052872f (Apache License 2.0).
+   Copyright (c) 2026 Idris Ali Shaik.
+   The following 5 files are derived from it and were modified (generalized from the Collatz map to the
+   maps of Goncalves, Greenfeld and Madrid):
+     GGMCollatz/Seed.lean
+     GGMCollatz/Seed/Chain.lean
+     GGMCollatz/Seed/Fiber.lean
+     GGMCollatz/Seed/Potential.lean
+     GGMCollatz/Seed/Step.lean
+
+The remaining files are original to this project.
+
+Mathlib (https://github.com/leanprover-community/mathlib4, commit 0df444a360eaa60ab8c11dca51a86af692955474,
+Apache License 2.0) and the packages it requires (pinned in lake-manifest.json) are dependencies that Lake fetches
+at build time; they are not included in this repository. Their license and notice files are in their own
+repositories.
